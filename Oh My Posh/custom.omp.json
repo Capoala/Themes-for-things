@@ -1,0 +1,121 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+      {
+        "alignment": "left",
+        "type": "prompt",
+        "segments": [
+          {
+            "foreground": "#E5989B",
+            "background": "#6D6875",
+            "style": "diamond",
+            "powerline_symbol": "",
+            "leading_diamond": "\ue0c7",
+            "properties": {
+              "folder_separator_icon": " \ue0b1 ",
+              "style": "agnoster_short",
+              "max_depth": 2
+            },
+            "template": " {{ .Path }} ",
+            "type": "path"
+          },
+          {
+            "type": "dotnet",
+            "foreground": "#6D6875",
+            "background": "#E5989B",
+            "style": "powerline",
+            "powerline_symbol": "",
+            "leading_diamond": "\ue0be",
+            "trailing_diamond": "\ue0b8",
+            "template": " \udb82\udeae {{ .Full }} "
+          },
+          {
+            "type": "rust",
+            "foreground": "#6D6875",
+            "background": "#E5989B",
+            "style": "powerline",
+            "powerline_symbol": "",
+            "leading_diamond": "\ue0be",
+            "trailing_diamond": "\ue0b8",
+            "template": " \ue7a8 {{ .Full }} "
+          },
+          {
+            "type": "python",
+            "foreground": "#6D6875",
+            "background": "#E5989B",
+            "style": "powerline",
+            "powerline_symbol": "",
+            "leading_diamond": "\ue0be",
+            "trailing_diamond": "\ue0b8",
+            "template": " \ue73c {{ .Full }} ",
+            "properties": {
+              "display_mode": "context",
+              "fetch_version": true,
+              "fetch_virtual_env": true
+            }
+          },
+          {
+            "type": "git",
+            "foreground": "#E5989B",
+            "background": "#6D6875",
+            "style": "powerline",
+            "powerline_symbol": "",
+            "leading_diamond": "\ue0be",
+            "trailing_diamond": "\ue0b8",
+            "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} ",
+            "properties": {
+              "fetch_status": true,
+              "fetch_upstream_icon": true,
+              "display_status": true,
+              "display_stash_count": true,
+              "display_upstream_icon": true
+            }
+          }
+        ]
+      },
+      {
+        "alignment": "right",
+        "type": "prompt",
+        "segments": [
+          {
+            "type": "shell",
+            "foreground": "#E5989B",
+            "background": "#6D6875",
+            "style": "diamond",
+            "leading_diamond": "\ue0c7",
+            "trailing_diamond": "\ue0c6",
+            "template": "{{ .Name }} {{ .Version }}",
+            "properties": {
+              "mapped_shell_names": {
+                "pwsh": "PS"
+              }
+            }
+          },
+          {
+            "type": "executiontime",
+            "foreground": "#E5989B",
+            "background": "#6D6875",
+            "style": "diamond",
+            "leading_diamond": "\ue0c7",
+            "trailing_diamond": "\ue0c6",
+            "template": " \ue641 {{ .FormattedMs }} ",
+            "properties": {
+              "threshold": 500,
+              "style": "austin",
+              "always_enabled": true
+            }
+          },
+          {
+            "type": "upgrade",
+            "style": "plain",
+            "foreground": "#E5989B",
+            "background": "#6D6875",
+            "template": " \uf019 {{ .Latest }}"
+          }
+        ]
+      }
+    ],
+    "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+    "final_space": true,
+    "version": 2
+  }
